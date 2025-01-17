@@ -34,7 +34,7 @@
 
 <item itemtype="Led" CircId="Led-32" mainComp="false" Show_id="false" Show_Val="false" Pos="124,84" rotation="90" hflip="1" vflip="1" label="Led-32" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
 
-<item itemtype="MCU" CircId="mega8-42" mainComp="false" ShowProp="Frequency" Show_id="true" Show_Val="true" Pos="104,-88" rotation="90" hflip="1" vflip="1" label="mega8-42" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="0.8 MHz" Program="study.hex" Auto_Load="false" saveEepr="true" Logic_Symbol="false" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" MainMcu="true" SerialMon="-1" />
+<item itemtype="MCU" CircId="mega8-42" mainComp="false" ShowProp="Frequency" Show_id="true" Show_Val="true" Pos="104,-88" rotation="90" hflip="1" vflip="1" label="mega8-42" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="8 MHz" Program="../LAB_1/LAB_1/Debug/LAB_1.hex" Auto_Load="false" saveEepr="true" Logic_Symbol="false" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" MainMcu="true" SerialMon="-1" />
 
 <item itemtype="Node" CircId="Node-33" mainComp="false" Pos="-16,100" />
 
@@ -49,8 +49,6 @@
 <item itemtype="Node" CircId="Node-39" mainComp="false" Pos="84,100" />
 
 <item itemtype="Node" CircId="Node-40" mainComp="false" Pos="104,100" />
-
-<item itemtype="Node" CircId="Node-43" mainComp="false" Pos="-16,32" />
 
 <item itemtype="Connector" uid="Connector-63" startpinid="Led-2-rPin" endpinid="Node-33-0" pointList="-16,100,-16,100" />
 
@@ -94,12 +92,6 @@
 
 <item itemtype="Connector" uid="Connector-104" startpinid="Led-29-lPin" endpinid="Resistor-21-lPin" pointList="64,68,64,32" />
 
-<item itemtype="Connector" uid="Connector-107" startpinid="Led-2-lPin" endpinid="Node-43-1" pointList="-16,68,-16,32" />
-
-<item itemtype="Connector" uid="Connector-108" startpinid="Resistor-4-lPin" endpinid="Node-43-0" pointList="-16,32,-16,32" />
-
-<item itemtype="Connector" uid="Connector-109" startpinid="Node-43-2" endpinid="Resistor-4-lPin" pointList="-16,32,-16,32" />
-
 <item itemtype="Connector" uid="Connector-111" startpinid="Resistor-17-lPin" endpinid="Led-26-lPin" pointList="4,32,4,68" />
 
 <item itemtype="Connector" uid="Connector-112" startpinid="Resistor-18-lPin" endpinid="Led-27-lPin" pointList="24,32,24,68" />
@@ -117,5 +109,7 @@
 <item itemtype="Connector" uid="Connector-124" startpinid="Resistor-21-rPin" endpinid="mega8-42-PORTB4" pointList="64,0,64,-32,16,-32,16,-48" />
 
 <item itemtype="Connector" uid="Connector-125" startpinid="Resistor-22-rPin" endpinid="mega8-42-PORTB5" pointList="84,0,84,-40,24,-40,24,-48" />
+
+<item itemtype="Connector" uid="Connector-126" startpinid="Resistor-4-lPin" endpinid="Led-2-lPin" pointList="-16,32,-16,68" />
 
 </circuit>
