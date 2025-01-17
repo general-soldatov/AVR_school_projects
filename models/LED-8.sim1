@@ -34,7 +34,7 @@
 
 <item itemtype="Led" CircId="Led-32" mainComp="false" Show_id="false" Show_Val="false" Pos="124,84" rotation="90" hflip="1" vflip="1" label="Led-32" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
 
-<item itemtype="MCU" CircId="mega8-42" mainComp="false" ShowProp="Frequency" Show_id="true" Show_Val="true" Pos="104,-88" rotation="90" hflip="1" vflip="1" label="mega8-42" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="8 MHz" Program="../LAB_1/LAB_1/Debug/LAB_1.hex" Auto_Load="false" saveEepr="true" Logic_Symbol="false" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" MainMcu="true" SerialMon="-1" />
+<item itemtype="MCU" CircId="mega8-42" mainComp="false" ShowProp="Frequency" Show_id="true" Show_Val="true" Pos="104,-88" rotation="90" hflip="1" vflip="1" label="mega8-42" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="8 MHz" Program="../LAB_2/LAB_2/Debug/LAB_2.hex" Auto_Load="false" saveEepr="true" Logic_Symbol="false" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" MainMcu="true" SerialMon="-1" />
 
 <item itemtype="Node" CircId="Node-33" mainComp="false" Pos="-16,100" />
 
