@@ -3,27 +3,29 @@ LAB_4.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000054  00000000  00000000  00000054  2**1
+  0 .text         00000066  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  000000a8  2**0
+  1 .data         00000000  00800060  00800060  000000ba  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      00000030  00000000  00000000  000000a8  2**0
+  2 .comment      00000030  00000000  00000000  000000ba  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000000d8  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000000ec  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000020  00000000  00000000  00000114  2**0
+  4 .debug_aranges 00000020  00000000  00000000  00000128  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000514  00000000  00000000  00000134  2**0
+  5 .debug_info   00000524  00000000  00000000  00000148  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000004a4  00000000  00000000  00000648  2**0
+  6 .debug_abbrev 000004b3  00000000  00000000  0000066c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000001c9  00000000  00000000  00000aec  2**0
+  7 .debug_line   000001e7  00000000  00000000  00000b1f  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000024  00000000  00000000  00000cb8  2**2
+  8 .debug_frame  00000024  00000000  00000000  00000d08  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    000002be  00000000  00000000  00000cdc  2**0
+  9 .debug_str    000002c7  00000000  00000000  00000d2c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00000010  00000000  00000000  00000f9a  2**0
+ 10 .debug_loc    0000001f  00000000  00000000  00000ff3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000010  00000000  00000000  00001012  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -57,17 +59,17 @@ Disassembly of section .text:
   2e:	de bf       	out	0x3e, r29	; 62
   30:	cd bf       	out	0x3d, r28	; 61
   32:	02 d0       	rcall	.+4      	; 0x38 <main>
-  34:	0d c0       	rjmp	.+26     	; 0x50 <_exit>
+  34:	16 c0       	rjmp	.+44     	; 0x62 <_exit>
 
 00000036 <__bad_interrupt>:
   36:	e4 cf       	rjmp	.-56     	; 0x0 <__vectors>
 
 00000038 <main>:
-#include <avr/io.h>
 
 
 int main(void)
 {
+	unsigned char butcount = 0;
     DDRB = 0xFF;
   38:	8f ef       	ldi	r24, 0xFF	; 255
   3a:	87 bb       	out	0x17, r24	; 23
@@ -76,26 +78,57 @@ int main(void)
 	PORTD = 1 << 0;
   3e:	81 e0       	ldi	r24, 0x01	; 1
   40:	82 bb       	out	0x12, r24	; 18
+#include <avr/io.h>
+
+
+int main(void)
+{
+	unsigned char butcount = 0;
+  42:	80 e0       	ldi	r24, 0x00	; 0
+	DDRD = 0x00;
+	PORTD = 1 << 0;
 	
     while (1) 
     {
 		if (!(PIND&(1 << 0)))
-  42:	80 99       	sbic	0x10, 0	; 16
-  44:	03 c0       	rjmp	.+6      	; 0x4c <__SREG__+0xd>
+  44:	80 99       	sbic	0x10, 0	; 16
+  46:	07 c0       	rjmp	.+14     	; 0x56 <__SREG__+0x17>
 		{
-			PORTB = 0xFF;
-  46:	8f ef       	ldi	r24, 0xFF	; 255
-  48:	88 bb       	out	0x18, r24	; 24
-  4a:	fb cf       	rjmp	.-10     	; 0x42 <__SREG__+0x3>
+			if (butcount < 5)
+  48:	85 30       	cpi	r24, 0x05	; 5
+  4a:	10 f4       	brcc	.+4      	; 0x50 <__SREG__+0x11>
+			{
+				butcount++;
+  4c:	8f 5f       	subi	r24, 0xFF	; 255
+  4e:	fa cf       	rjmp	.-12     	; 0x44 <__SREG__+0x5>
+			}
+			else
+			{
+				PORTB = 0xFF;
+  50:	9f ef       	ldi	r25, 0xFF	; 255
+  52:	98 bb       	out	0x18, r25	; 24
+  54:	f7 cf       	rjmp	.-18     	; 0x44 <__SREG__+0x5>
+			}
+			
 		}
 		else
 		{
-			PORTB = 0x00;
-  4c:	18 ba       	out	0x18, r1	; 24
-  4e:	f9 cf       	rjmp	.-14     	; 0x42 <__SREG__+0x3>
+			if (butcount > 0)
+  56:	88 23       	and	r24, r24
+  58:	11 f0       	breq	.+4      	; 0x5e <__SREG__+0x1f>
+			{
+				butcount--;
+  5a:	81 50       	subi	r24, 0x01	; 1
+  5c:	f3 cf       	rjmp	.-26     	; 0x44 <__SREG__+0x5>
+			}
+			else
+			{
+				PORTB = 0x00;
+  5e:	18 ba       	out	0x18, r1	; 24
+  60:	f1 cf       	rjmp	.-30     	; 0x44 <__SREG__+0x5>
 
-00000050 <_exit>:
-  50:	f8 94       	cli
+00000062 <_exit>:
+  62:	f8 94       	cli
 
-00000052 <__stop_program>:
-  52:	ff cf       	rjmp	.-2      	; 0x52 <__stop_program>
+00000064 <__stop_program>:
+  64:	ff cf       	rjmp	.-2      	; 0x64 <__stop_program>

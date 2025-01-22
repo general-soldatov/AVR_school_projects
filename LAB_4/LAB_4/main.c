@@ -10,6 +10,7 @@
 
 int main(void)
 {
+	unsigned char butcount = 0;
     DDRB = 0xFF;
 	DDRD = 0x00;
 	PORTD = 1 << 0;
@@ -18,11 +19,26 @@ int main(void)
     {
 		if (!(PIND&(1 << 0)))
 		{
-			PORTB = 0xFF;
+			if (butcount < 5)
+			{
+				butcount++;
+			}
+			else
+			{
+				PORTB = 0xFF;
+			}
+			
 		}
 		else
 		{
-			PORTB = 0x00;
+			if (butcount > 0)
+			{
+				butcount--;
+			}
+			else
+			{
+				PORTB = 0x00;
+			}			
 		}
     }
 }

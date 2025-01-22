@@ -1,0 +1,33 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="MCU" CircId="mega8-2" mainComp="false" ShowProp="Frequency" Show_id="true" Show_Val="true" Pos="-92,-64" rotation="0" hflip="1" vflip="1" label="mega8-2" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="8 MHz" Program="../LAB_6/LAB_6/Debug/LAB_6.hex" Auto_Load="false" saveEepr="true" Logic_Symbol="false" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" MainMcu="true" SerialMon="-1" />
+
+<item itemtype="Seven Segment" CircId="Seven Segment-3" mainComp="false" Show_id="false" Show_Val="false" Pos="16,-8" rotation="0" hflip="1" vflip="1" label="Seven Segment-3" idLabPos="20,-44" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" NumDisplays="1" Vertical_Pins="false" CommonCathode="true" Threshold="2.4 V" MaxCurrent="20 mA" Resistance="1 Ω" />
+
+<item itemtype="Ground" CircId="Ground-4" mainComp="false" Show_id="false" Show_Val="false" Pos="24,60" rotation="0" hflip="1" vflip="1" label="Ground-4" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Push" CircId="Push-6" mainComp="false" Show_id="false" Show_Val="false" Pos="-156,-48" rotation="0" hflip="1" vflip="1" label="Push-6" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" Poles="1" />
+
+<item itemtype="Ground" CircId="Ground-7" mainComp="false" Show_id="false" Show_Val="false" Pos="-184,4" rotation="0" hflip="1" vflip="1" label="Ground-7" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Connector" uid="Connector-1" startpinid="mega8-2-PORTB0" endpinid="Seven Segment-3-pin_a" pointList="-100,48,-128,48,-128,-84,-8,-84,-8,-32" />
+
+<item itemtype="Connector" uid="Connector-2" startpinid="mega8-2-PORTB1" endpinid="Seven Segment-3-pin_b" pointList="-52,48,-24,48,-24,-24,-8,-24" />
+
+<item itemtype="Connector" uid="Connector-3" startpinid="mega8-2-PORTB2" endpinid="Seven Segment-3-pin_c" pointList="-52,40,-28,40,-28,-16,-8,-16" />
+
+<item itemtype="Connector" uid="Connector-4" startpinid="mega8-2-PORTB3" endpinid="Seven Segment-3-pin_d" pointList="-52,32,-32,32,-32,-8,-8,-8" />
+
+<item itemtype="Connector" uid="Connector-5" startpinid="mega8-2-PORTB4" endpinid="Seven Segment-3-pin_e" pointList="-52,24,-36,24,-36,0,-8,0" />
+
+<item itemtype="Connector" uid="Connector-6" startpinid="mega8-2-PORTB5" endpinid="Seven Segment-3-pin_f" pointList="-52,16,-40,16,-40,8,-8,8" />
+
+<item itemtype="Connector" uid="Connector-7" startpinid="mega8-2-PORTB6" endpinid="Seven Segment-3-pin_g" pointList="-100,8,-116,8,-116,64,-8,64,-8,16" />
+
+<item itemtype="Connector" uid="Connector-8" startpinid="Seven Segment-3-pin_commona" endpinid="Ground-4-Gnd" pointList="24,24,24,44" />
+
+<item itemtype="Connector" uid="Connector-9" startpinid="Push-6-switch0pinN" endpinid="mega8-2-PORTD0" pointList="-140,-48,-100,-48" />
+
+<item itemtype="Connector" uid="Connector-10" startpinid="Ground-7-Gnd" endpinid="Push-6-pinP0" pointList="-184,-12,-184,-48,-172,-48" />
+
+</circuit>
