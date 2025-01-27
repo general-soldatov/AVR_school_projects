@@ -1,0 +1,59 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="MCU" CircId="mega8-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-60,-112" rotation="0" hflip="1" vflip="1" label="mega8-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Program="../LAB_7_2/LAB_7_2/Debug/LAB_7_2.hex" Auto_Load="false" saveEepr="true" Logic_Symbol="false" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" MainMcu="true" SerialMon="-1" />
+
+<item itemtype="Oscope" CircId="Oscope-6" mainComp="false" Show_id="false" Show_Val="false" Pos="148,-124" rotation="0" hflip="1" vflip="1" label="Oscope-6" idLabPos="-90,-100" labelrot="0" valLabPos="-16,20" valLabRot="0" Basic_X="141 _px" Basic_Y="147 _px" BufferSize="600019" connectGnd="true" InputImped="13 MΩ" TimDiv="1640853294" TimPos="0,0,0,0," VolDiv="1,1,1,1," Tunnels=",,,," Trigger="4" Filter="0.1 V" AutoSC="4" Tracks="1" HideCh="false,false,false,false," VolPos="0,0,0,0," />
+
+<item itemtype="DcMotor" CircId="DcMotor-25" mainComp="false" Show_id="true" Show_Val="false" Pos="188,12" rotation="0" hflip="1" vflip="1" label="DcMotor-25" idLabPos="-22,-48" labelrot="0" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="5 V" Resistance="100 Ω" />
+
+<item itemtype="BJT" CircId="BJT-26" mainComp="false" Show_id="false" Show_Val="false" Pos="84,40" rotation="0" hflip="1" vflip="1" label="BJT-26" idLabPos="18,0" labelrot="0" valLabPos="-16,20" valLabRot="0" PNP="true" Gain="10" Vcrit="1.67074 V" />
+
+<item itemtype="Ground" CircId="Ground-29" mainComp="false" Show_id="false" Show_Val="false" Pos="260,56" rotation="0" hflip="1" vflip="1" label="Ground-29" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-30" mainComp="false" Show_id="false" Show_Val="false" Pos="-72,64" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-30" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="Resistor" CircId="Resistor-33" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="28,40" rotation="0" hflip="1" vflip="1" label="Resistor-33" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="20 Ω" />
+
+<item itemtype="Switch" CircId="Switch-45" mainComp="false" Show_id="false" Show_Val="false" Pos="24,-76" rotation="0" hflip="1" vflip="1" label="Switch-45" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" DT="false" Poles="1" />
+
+<item itemtype="Switch" CircId="Switch-47" mainComp="false" Show_id="false" Show_Val="false" Pos="24,-20" rotation="0" hflip="1" vflip="1" label="Switch-47" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" DT="false" Poles="1" />
+
+<item itemtype="Led" CircId="Led-49" mainComp="false" Show_id="false" Show_Val="false" Pos="104,-20" rotation="0" hflip="1" vflip="1" label="Led-49" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Resistor" CircId="Resistor-50" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="64,-20" rotation="0" hflip="1" vflip="1" label="Resistor-50" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="20 Ω" />
+
+<item itemtype="Node" CircId="Node-46" mainComp="false" Pos="-4,-16" />
+
+<item itemtype="Node" CircId="Node-51" mainComp="false" Pos="-4,-12" />
+
+<item itemtype="Node" CircId="Node-52" mainComp="false" Pos="260,12" />
+
+<item itemtype="Connector" uid="Connector-76" startpinid="Resistor-33-rPin" endpinid="BJT-26-base" pointList="44,40,68,40" />
+
+<item itemtype="Connector" uid="Connector-81" startpinid="Fixed Voltage-30-outnod" endpinid="BJT-26-emiter" pointList="-56,64,92,64,92,56" />
+
+<item itemtype="Connector" uid="Connector-93" startpinid="BJT-26-collector" endpinid="DcMotor-25-lPin" pointList="92,24,92,12,148,12" />
+
+<item itemtype="Connector" uid="Connector-113" startpinid="Switch-45-switch0pinN" endpinid="Oscope-6-Pin3" pointList="40,-76,60,-76" />
+
+<item itemtype="Connector" uid="Connector-114" startpinid="Switch-45-pinP0" endpinid="Node-46-1" pointList="8,-76,-4,-76,-4,-16" />
+
+<item itemtype="Connector" uid="Connector-116" startpinid="Node-46-2" endpinid="mega8-1-PORTB3" pointList="-4,-16,-20,-16" />
+
+<item itemtype="Connector" uid="Connector-117" startpinid="Resistor-50-rPin" endpinid="Led-49-lPin" pointList="80,-20,88,-20" />
+
+<item itemtype="Connector" uid="Connector-118" startpinid="Resistor-50-lPin" endpinid="Switch-47-switch0pinN" pointList="48,-20,40,-20" />
+
+<item itemtype="Connector" uid="Connector-120" startpinid="Node-51-1" endpinid="Switch-47-pinP0" pointList="-4,-12,-4,-20,8,-20" />
+
+<item itemtype="Connector" uid="Connector-121" startpinid="Resistor-33-lPin" endpinid="Node-51-0" pointList="12,40,-4,40,-4,-12" />
+
+<item itemtype="Connector" uid="Connector-122" startpinid="Node-51-2" endpinid="Node-46-0" pointList="-4,-12,-4,-16" />
+
+<item itemtype="Connector" uid="Connector-123" startpinid="Led-49-rPin" endpinid="Node-52-1" pointList="120,-20,260,-20,260,12" />
+
+<item itemtype="Connector" uid="Connector-124" startpinid="DcMotor-25-rPin" endpinid="Node-52-0" pointList="228,12,260,12" />
+
+<item itemtype="Connector" uid="Connector-125" startpinid="Node-52-2" endpinid="Ground-29-Gnd" pointList="260,12,260,40" />
+
+</circuit>
